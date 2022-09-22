@@ -1,13 +1,22 @@
 from tkinter import *
 from subprocess import run
 
+
+
 # GET AUDIO
 def get_audio():
-    run(["yt-dlp", "-x" ,"--audio-format" ,"mp3" ,"-o" ,f"~/Downloads/{new_file_input.get()}.%(ext)s" ,song_endpoint_input.get()])
-    print("test ran")
+    import platform
+    os = str(platform.uname()[0])
+    if "linux" in os.lower():
+        run(["yt-dlp", "-x" ,"--audio-format" ,"mp3" ,"-o" ,f"~/Downloads/{new_file_input.get()}.%(ext)s" ,song_endpoint_input.get()])
+        print("[+] Process Complete")
+    elif "win" in os.lower():
+        run(["yt-dlp", "-x" ,"--audio-format" ,"mp3" ,"-o" ,f"$HOME\Downloads\{new_file_input.get()}.%(ext)s" ,song_endpoint_input.get()])
+        print("[+] Process Complete")
+
 
 screen = Tk()
-screen.title("Password Manager")
+screen.title("Music Downloader")
 screen.config(padx=50, pady=50)
 
 # LABELS
