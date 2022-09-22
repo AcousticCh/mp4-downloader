@@ -3,7 +3,7 @@ from subprocess import run
 
 # GET AUDIO
 def get_audio():
-    run(["yt-dlp", "-x" ,"--audio-format" ,"mp3" ,"-o" ,f"~/Downloads/{new_file_input.get()}.%(ext)s" ,song_endpoint_input.get()])
+    run(["yt-dlp", "-x" ,"--audio-format" ,"mp3" ,"-o" ,f"$HOME\Downloads\{new_file_input.get()}.%(ext)s" ,song_endpoint_input.get()])
     print("test ran")
 
 screen = Tk()
